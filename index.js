@@ -8,4 +8,11 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 app.use("/static", express.static(path.resolve(__dirname, "public")));
 app.get("/", (req, res) => res.render("index"));
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "views/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 app.listen(port, () => console.log("Example app listening on port 3000"));
