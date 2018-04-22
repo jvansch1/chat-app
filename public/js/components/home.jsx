@@ -9,6 +9,10 @@ export default class Home extends React.Component {
     return (
       <div>
         <h1>Home</h1>
+        <form id="chat">
+          <input id="message" type="text" />
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }
